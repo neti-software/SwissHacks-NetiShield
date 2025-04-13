@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id                    String                          @id @default(uuid())
+  senderAddress         String
+  recipientAddress      String
+  amount                Float
+  escrowTransactionHash String?
+  escrowWalletAddress   String?
+  escrowLedgerIndex     Int?
+  senderSignature       String?
+  recipientSignature    String?
+  adminSignature        String?
+  currentStatus         LatestTransactionStatusLogView?
+  statusLog             TransactionStatusLog[]
+  createdAt             DateTime                        @default(now())
+  updatedAt             DateTime                        @updatedAt
+  vendorVerifications   VendorVerification[]
+}
+
+model TransactionStatusLog {
+  id            String            @id @default(uuid())
+  status        TransactionStatus
+  transaction   Transaction       @relation(fields: [transactionId], references: [id])
+  transactionId String
+  createdAt     DateTime          @default(now())
+}
+
+view LatestTransactionStatusLogView {
+  id            String
+  status        TransactionStatus
+  transaction   Transaction       @relation(fields: [transactionId], references: [id])
+  transactionId String            @unique
+  createdAt     DateTime
+
+  @@map("latest_transaction_status_log_view")
+}
+
+model VendorVerification {
+  id                 String                                 @id @default(uuid())
+  subjectAddress     String
+  verificationResult String?
+  vendor             Vendor                                 @relation(fields: [vendorId], references: [id])
+  vendorId           String
+  transaction        Transaction                            @relation(fields: [transactionId], references: [id])
+  transactionId      String
+  statusLog          VendorVerificationStatusLog[]
+  currentStatus      LatestVendorVerificationStatusLogView?
+  createdAt          DateTime                               @default(now())
+  updatedAt          DateTime                               @updatedAt
+}
+
+model VendorVerificationStatusLog {
+  id                   String                   @id @default(uuid())
+  status               VendorVerificationStatus
+  vendorVerification   VendorVerification       @relation(fields: [vendorVerificationId], references: [id])
+  vendorVerificationId String
+  createdAt            DateTime                 @default(now())
+}
+
+view LatestVendorVerificationStatusLogView {
+  id                   String
+  status               VendorVerificationStatus
+  vendorVerification   VendorVerification       @relation(fields: [vendorVerificationId], references: [id])
+  vendorVerificationId String                   @unique
+  createdAt            DateTime
+
+  @@map("latest_vendor_verification_status_log_view")
+}
+
+model Vendor {
+  id            String               @id @default(uuid())
+  name          String               @unique
+  description   String?
+  active        Boolean              @default(true)
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  verifications VendorVerification[]
+}
+
+enum TransactionStatus {
+  PENDING_VERIFICATION
+  RECIPIENT_AND_SENDER_VERIFICATION_FAILED
+  RECIPIENT_VERIFICATION_FAILED
+  SENDER_VERIFICATION_FAILED
+  ESCROW_FUNDED
+  SENDER_APPROVED
+  RECIPIENT_APPROVED
+  ADMIN_APPROVED
+  SENDER_REJECTED
+  RECIPIENT_REJECTED
+  ADMIN_REJECTED
+  VERIFICATION_SUCCESS
+  REJECTED
+  SUCCESS
+  FAILED
+}
+
+enum VendorVerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
