@@ -9,7 +9,7 @@
 [🌐 Live Test Instance](#accessing-the-live-test-instance)  
 [📝 Overview](#overview)  
 [📱 Usage](#using-the-application)  
-[🔧 Setup](#local-setup)  
+[🔧 Local Setup](#local-setup)  
 
 </div>
 
@@ -92,6 +92,7 @@ When transactions require approval due to verification failures:
   - XUMM Developer API credentials (API Key and API Secret) for integration
   - Verified wallet with wallet activation on mobile device
 - Node.js (v18+) for local setup
+- docker and docker compose
 
 ### Quick Setup
 
