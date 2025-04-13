@@ -111,10 +111,10 @@ const CreateTransaction: React.FC = () => {
           ].includes(status.status)
         )
       ) {
-        navigate(`/dashboard/sent`);
+        navigate(`/transactions/${transactionIdFromResponse}`);
         return;
       }
-      navigate(`/transactions/${transactionIdFromResponse}`);
+      navigate(`/dashboard/sent`);
     } catch (error) {
       console.error("Error checking transaction status:", error);
       navigate("/dashboard", { state: { refresh: true } });

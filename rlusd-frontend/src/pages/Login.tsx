@@ -69,9 +69,9 @@ const Login: React.FC = () => {
               <h3 className="font-medium text-secondary-blue mb-1">How to connect:</h3>
               <ol className="list-decimal pl-5 text-sm text-secondary-blue space-y-1">
                 <li>Open your Xaman wallet app</li>
+                <li>Ensure you have activated you account</li>
                 <li>Tap the scan button in the app</li>
                 <li>Scan this QR code</li>
-                <li>Ensure you have activated you account</li>
                 <li>Approve the sign-in request in your Xaman app</li>
                 <li>Wait for verification (takes about 15 seconds)</li>
               </ol>
@@ -152,20 +152,6 @@ const Login: React.FC = () => {
             </button>
           </div>
         )}
-
-        <div className="text-center text-sm text-neutral-gray mt-4">
-          <p>
-            You need a Xaman wallet to use this application.
-            <a
-              href="https://xumm.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary-blue hover:underline ml-1"
-            >
-              Get Xaman
-            </a>
-          </p>
-        </div>
       </div>
     </div>
   );

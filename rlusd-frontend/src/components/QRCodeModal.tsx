@@ -185,6 +185,15 @@ const QRCodeModal: React.FC<QRCodeModalProps> = ({
             </div>
           </div>
         )}
+
+        <div className="flex justify-between">
+          <button
+            onClick={onClose}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded"
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
