@@ -10,7 +10,7 @@
 [📝 Overview](#overview)  
 [📱 Usage](#using-the-application)  
 [🔧 Local Setup](#local-setup)  
-[🔧 Neti team][https://neti-soft.com/](https://neti-soft.com/)
+[🔧 Neti team](https://neti-soft.com/)
 
 </div>
 
