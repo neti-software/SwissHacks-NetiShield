@@ -20,7 +20,7 @@
 To test the application, you can use the following resources:
 
 - **Application URL**: [https://neti-shield.test.neti-soft.co/](https://neti-shield.test.neti-soft.co/)
-- **Admin Secret for Xaman**: `sEdVDoJTPFxZGcMwquMs4JhRc54LWVP`
+- **Escrow Authority Wallet Secret for Xaman**: `sEdVDoJTPFxZGcMwquMs4JhRc54LWVP`
 
 Follow these steps to set up for testing:
 1. Import the admin secret into your Xaman wallet
