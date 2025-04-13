@@ -1,6 +1,6 @@
 # RLUSD Escrow Verification Framework
 
-![RLUSD Logo](rlusd-frontend/public/logo.png)
+![RLUSD Logo](neti-shield-logo-whitebgn.png)
 
 <div align="center">
 
