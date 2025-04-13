@@ -23,9 +23,10 @@ To test the application, you can use the following resources:
 - **Escrow Authority Wallet Secret for Xaman**: `sEdVDoJTPFxZGcMwquMs4JhRc54LWVP`
 
 Follow these steps to set up for testing:
-1. Import the admin secret into your Xaman wallet
-2. Access the application through the provided URL
-3. Use the testing verification providers to simulate different scenarios
+1. Create 2 Accounts in Xaman wallet for Sender and Recipient
+2. Import the Escrow Authority secret into your Xaman wallet
+3. Access the application through the provided URL
+4. Use the testing verification providers to simulate different scenarios
 
 
 ## Overview
