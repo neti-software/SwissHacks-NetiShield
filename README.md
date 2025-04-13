@@ -104,8 +104,14 @@ When transactions require approval due to verification failures:
 3. Start the application:
    ```
    # In backend directory
+   #create .env from example
+   cp .env.example .env
+   #run docker compose configuration (Postgres database service)
+   docker compose up -d
+   #start backend application
    npm run start:dev
    
    # In frontend directory
+   #start frontend application
    npm start
    ```
