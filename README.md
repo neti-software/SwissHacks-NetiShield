@@ -10,6 +10,7 @@
 [📝 Overview](#overview)  
 [📱 Usage](#using-the-application)  
 [🔧 Local Setup](#local-setup)  
+[🔗 Neti team](https://neti-soft.com/)
 
 </div>
 
@@ -20,6 +21,7 @@
 To test the application, you can use the following resources:
 
 - **Application URL**: [https://neti-shield.test.neti-soft.co/](https://neti-shield.test.neti-soft.co/)
+- **Video Presentation**:[https://www.loom.com/share/5f1d306fc70540729ca32e25d74387ec?sid=279eb2e5-76bd-49c8-931a-1a778546e4fc]
 - **Escrow Authority Wallet Secret for Xaman**: `sEdVDoJTPFxZGcMwquMs4JhRc54LWVP`
 
 Follow these steps to set up for testing:
@@ -31,6 +33,7 @@ Follow these steps to set up for testing:
 
 ## Overview
 
+
 RLUSD Escrow Verification Framework on the XRP Ledger
 
 This project implements a secure and automated escrow system for RLUSD transactions on the XRP Ledger. It introduces a trust-minimized, provider-agnostic verification flow designed to protect against fraud while enabling streamlined, automated fund transfers.
@@ -40,6 +43,7 @@ The sender initiates the transaction by specifying the recipient's address. The 
 If either party fails verification, the transaction is rerouted through a secure, self-destructing escrow wallet with multisig controls involving the sender, recipient, and/or an Escrow Authority. This mechanism ensures robust protection even in flagged transactions, enabling dispute resolution while preserving automation and decentralization.
 
 The system is built for high-integrity financial interactions, ensuring safety in automated processes and offering flexible integration with a wide range of verification service providers.
+
 
 ### Verification Flow Diagram
 
