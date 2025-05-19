@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import TransactionDetails from "./pages/TransactionDetails";
 import CreateTransaction from "./pages/CreateTransaction";
 import { useAuth } from "./context/AuthContext";
+import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 
 // Protected route wrapper
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -45,6 +46,9 @@ const App: React.FC = () => {
 
 // Routes component that can use hooks
 const AppRoutes: React.FC = () => {
+  // Initialize Google Analytics
+  useGoogleAnalytics();
+
   return (
     <Routes>
       <Route path="/" element={<Login />} />
